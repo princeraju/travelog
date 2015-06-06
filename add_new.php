@@ -8,6 +8,7 @@
 ?>
 <div class="container">
 <?php require_once('navtab.php')?>
+<?php require_once('gallery_drop.php');?>
     <div class="container-new">
     
         <img class="main_image" src="" >
@@ -20,9 +21,8 @@
             <input type="hidden" id="hidden_image" value="">
             <div class="add_image"><span class="icon-image"></span></div>
             
-            <button class="button">Add day</button>
-        </div>
-<?php require_once('gallery_drop.php');?>
+            <button class="button" id="add_day">Add more</button>
+    </div>
         
     </div>
 </div>
@@ -68,11 +68,23 @@ $(document).ready(function(){
                     width: '900px',
                     marginLeft:'-450px'
                 },700);
-            if($('#hidden_image').val()!=cur2 && $('#hidden_image').val()!="")
-            {
-                
-            }
+           
                                      
+        }
+    });
+    
+    $('#add_day').click(function(){
+        if($('#title').val().length<1)
+            alert("Title can't be empty");
+        else if ($('#intro').val().length<1)
+            alert("Intro can't be empty");
+        else
+        {
+            var title=$('#title').val();
+            var intro=$('#intro').val();
+            var image=$('#hidden_image').val();
+            $('#add_day').html("Saving..");
+            $('#add_day').load('a_insert_event.php',{'title': title, 'intro': intro, 'image':image});
         }
     });
 });
