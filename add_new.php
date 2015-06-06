@@ -23,10 +23,14 @@
             <button class="button" id="add_day">Add more</button>
         </div>
         
-        <!--<div class="box">
-            <input type="text" name="title" to-hide="" id="title" class="event add_input" placeholder="Title" autofocus maxlength="30" style="font-size:15px">
-            <input type="text" name=""
-        </div> -->
+        <div class="box" id="create_new_event" style="display:none;">
+            
+            
+            <div id="full_date" style="color:#333; font-size:24px;"></div>
+            <button id="add_date_button" class="button" style="margin-left:0px; font-size:14px; color:#444; text-decoration:underscore;" onClick="show_drop('#year')"><u>Add Date</u></button>
+            <br/><br/>
+            <input type="text" name="title" to-hide="" id="title" class="event add_input" placeholder="Title" autofocus maxlength="30" style="font-size:19px">
+        </div>
         
     </div>
 </div>
@@ -48,6 +52,8 @@
 $(document).ready(function(){
     var cur2;
     var temp= '<?php echo uniqid();?>';
+    var log_id= temp;
+    var year, month, day;
     $('.add_image').click(function(){
         $('.gallery_drop').animate({
             marginTop:'0px'},700);
@@ -91,18 +97,27 @@ $(document).ready(function(){
             $('#add_day').html("Saving..");
             $('#add_day').load('a_insert_event.php',{'title': title, 'intro': intro, 'image':image, 'id':temp});
            
-                    add_new(temp);
+                    $('#create_new_event').show(500);
         }
     });
 });
- function add_new(temp)
+
+    
+    function show_drop(temp) 
     {
-        var string='<div class="box">'
-                    +'<input type="text" name="title" to-hide="" id="title" class="add_input" placeholder="Title" autofocus maxlength="60">'
-        
-                    +'</div>';
-        $('.container-new').append(string);
+        $(temp).animate({
+            marginTop: '0px'
+        },500);
+        if(temp=="#year")
+            $('#year_hold').focus();
     }
+    function hide_drop(temp) 
+    {
+        $(temp).animate({
+            marginTop: '-1000px'
+        },500);
+    }
+
 </script>
 
 <?php require_once('footer.php');?>

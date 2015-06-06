@@ -69,6 +69,11 @@ html,body
     font-size: 28px;
     color: #009688;
 }
+#year
+{
+    font-size: 25px;
+    color: #333;
+}
 #login_back
 {
     background: url('images/login_back.jpg');
@@ -97,15 +102,26 @@ html,body
     margin-left: -230px;
     
 }
+.event
+{
+    display: inline; 
+    border: thin;
+    padding: 10px;
+    background: transparent;
+    outline: none;
+}
+
 .drop_top
 {
     padding: 10px;
     position: fixed;
     top: -10px;
+    z-index: 100;
     left: 50%;
     width: 400px;
     max-width: 400px;
     margin-left: -200px;
+    margin-top:-1000px;
     background: rgba(255,255,255,.5);
     height: 250px;
     border-radius: 10px;
@@ -166,6 +182,19 @@ html,body
     cursor: pointer;
     width: 100px;
     z-index: 5;
+    background: transparent;
+    
+}
+.button2
+{
+    font-size: 16px;
+    color: #FFF;
+    border: thin;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    z-index: 5;
+    margin: 10px;
     background: transparent;
     
 }
