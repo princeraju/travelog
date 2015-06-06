@@ -10,7 +10,9 @@
         <div class="container">
             <?php
                 echo $_SESSION['email'];
+                
             ?>
+            <a href="add_new.php">Add New</a>
         </div>
 
 <?php require_once('footer.php');?>
