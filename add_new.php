@@ -12,7 +12,9 @@
     
         <div class="box">
             <div class="hint" id="title_hint">Title</div>
-            <input type="text" name="title" to-hide="title_hint" id="title" class="add_input" placeholder="Title" autofocus maxlength="60">
+            <input type="text" name="title" to-hide="" id="title" class="add_input" placeholder="Title" autofocus maxlength="60">
+            <div class="hint" id="intro_hint" style="border-bottom:none;">Introduction</div>
+            <textarea type="text" name="intro" to-hide="intro_hint" id="intro" class="add_input" placeholder="Introduction"></textarea>
         </div>
         
     </div>
@@ -20,10 +22,10 @@
 <script>
     $(document).ready(function(){
         var cur;
-    $('#title').on('input', function() {
-        cur='#'+$('#title').attr('to-hide');
+    $('.add_input').on('input', function() {
+        cur='#'+$(this).attr('to-hide');
         
-        if($('#title').val().length>0)
+        if($(this).val().length>0)
             $(cur).show(700);
         else
             $(cur).hide(700);

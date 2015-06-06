@@ -42,13 +42,18 @@ html,body
 }
 .hint
 {
-    color: #ccc;
+    color: #d6d6d6;
     margin-left: 30px;
     display: none;
+    width: 40%;
+    margin-top: 10px;
+    border-bottom: 1px solid;
+    outline: none;
 }
 #title
 {
     font-size: 28px;
+    color: #009688;
 }
 #login_back
 {
@@ -60,6 +65,12 @@ html,body
     top: 0;
     left: 0;
     z-index: -1;
+}
+#intro
+{
+    font-size: 20px;
+    margin-left: 30px;
+    color: #7d7d7d;
 }
 #login_img
 {
