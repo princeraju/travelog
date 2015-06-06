@@ -23,19 +23,65 @@
             <button class="button" id="add_day">Add more</button>
         </div>
         
+        
+        <div class="data_adder">
+            
+        </div>
+        
         <div class="box" id="create_new_event" style="display:none;">
-            
-            
             <div id="full_date" style="color:#333; font-size:24px;"></div>
             <button id="add_date_button" class="button" style="margin-left:0px; font-size:14px; color:#444; text-decoration:underscore;" onClick="show_drop('#year')"><u>Add Date</u></button>
             <br/><br/>
-            <input type="text" name="title" to-hide="" id="title" class="event add_input" placeholder="Title" autofocus maxlength="30" style="font-size:19px">
+            <input type="text" name="title" to-hide="" id="title" class="event add_input title_small" placeholder="Title" autofocus maxlength="30" style="font-size:19px">
+            <div class="hint" id="scribble_hint" style="border-bottom:none;">My scribblings</div>
+            <textarea type="text" name="details" to-hide="scribble_hint" id="scribble" class="add_input" placeholder="My scribblings"></textarea>
+            <button class="button" id="save_button">Save</button>
         </div>
         
     </div>
 </div>
 <script>
-    $(document).ready(function(){
+
+$(document).ready(function(){
+        var mysql_date;
+   $(".drop_top").css("marginTop", '-1000px');
+    
+    $('#year_hold').keyup(function(){
+        if($(this).val().length>=4)
+        {
+            year=$(this).val();
+            show_drop('#month');
+            
+        }
+    });
+    
+    
+    $(".button2").click(function(){
+        month=$(this).attr('value');
+        month_word=$(this).html();
+        show_drop('#day');
+        $('#day_hold').focus();
+    });
+    
+    $('#day_hold').keyup(function(){
+        if($(this).val().length>=2)
+        {
+            day=$(this).val();
+            hide_drop('#day');
+            setTimeout(function(){
+            hide_drop('#month');
+            },200);
+            setTimeout(function(){
+            hide_drop('#year');
+            },400);
+            
+            $('#full_date').html(day+" "+month_word+" "+year);
+            $('#add_date_button').html('<u>Edit Date</u>');
+            mysql_date=year+'-'+month+'-'+day;
+        }
+    });
+
+
         var cur;
     $('.add_input').on('input', function() {
         cur='#'+$(this).attr('to-hide');
@@ -45,11 +91,27 @@
         else
             $(cur).hide(700);
     });
-        
-    });
-</script>
-<script>
-$(document).ready(function(){
+       
+            $('#save_button').click(function(){
+            var date=mysql_date;
+            var title=$('.title_small').val();
+            var des=$('#scribble').val();
+            $('#save_button').load('a_insert_log.php',{"id": log_id, "title":title, "des":des, "date":date, "id_journey":log_id});
+            
+            var string='<div class="box2">'+
+            '<div class="date">'+day+'-'+month+'-'+year+'</div>'+
+                '<h4 style="color:#3e3e3e;">'+title+'</h4>'+
+                '<blockquote>'+des+'</blockquote>'+
+            '</div>';
+            $('.data_adder').append(string);
+            
+            $('.title_small').val('');
+            $('#scribble').val('');
+            $('#full_date').html('');
+            $('#add_date_button').html('<u>Add Date</u>');
+            $('#scribble_hint').hide(500);
+        });
+
     var cur2;
     var temp= '<?php echo uniqid();?>';
     var log_id= temp;
@@ -100,6 +162,8 @@ $(document).ready(function(){
                     $('#create_new_event').show(500);
         }
     });
+    
+
 });
 
     

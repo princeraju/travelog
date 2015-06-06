@@ -39,44 +39,5 @@
 
 
 <script>
-    var mysql_date;
-$(document).ready(function(){
-   $(".drop_top").css("marginTop", '-1000px');
-    
-    $('#year_hold').keyup(function(){
-        if($(this).val().length>=4)
-        {
-            year=$(this).val();
-            show_drop('#month');
-            
-        }
-    });
-    
-    
-    $(".button2").click(function(){
-        month=$(this).attr('value');
-        month_word=$(this).html();
-        show_drop('#day');
-        $('#day_hold').focus();
-    });
-    
-    $('#day_hold').keyup(function(){
-        if($(this).val().length>=2)
-        {
-            day=$(this).val();
-            hide_drop('#day');
-            setTimeout(function(){
-            hide_drop('#month');
-            },200);
-            setTimeout(function(){
-            hide_drop('#year');
-            },400);
-            
-            $('#full_date').html(day+" "+month_word+" "+year);
-            $('#add_date_button').html('<u>Edit Date</u>');
-            mysql_date=year+'-'+month+'-'+day;
-        }
-    });
-    
-});
+
 </script>

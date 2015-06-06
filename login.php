@@ -30,7 +30,7 @@
 ?>
 
         <div class="container">
-            <div class="drop_top">
+            <div class="drop_top" style="display:block; margin-top:0px;">
                 <div style="margin-top:50px;">
                     <?php
                         if(isset($message))
