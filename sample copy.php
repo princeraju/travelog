@@ -1,5 +1,5 @@
 <?php 
-    $title="Sample";
+    $title="Login";
     require_once('pw_for_travelog.php');
 ?>
 
