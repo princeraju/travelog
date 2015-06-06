@@ -5,6 +5,7 @@ html,body
     padding: 0;
     font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
     background: #e0e0e0;
+    margin-bottom: 100px;
 }
 .container
 {
@@ -18,19 +19,30 @@ html,body
     position: relative;
     left: 50%;
     margin-left: -400px;
-    margin-top: 100px;
+    margin-top: 50px;
     padding: 10px;
 }
 .box
 {
-    padding: 10px;
+    padding: 20px;
     background: #FFF;
     width: 100%;
-    margin: 20px;
+    margin: 0px;
     border-radius: 10px;
+    z-index: 3;
+    position: relative;
+    padding-top: 40px;
     -webkit-box-shadow: 2px -2px 44px -18px rgba(0,0,0,1);
     -moz-box-shadow: 2px -2px 44px -18px rgba(0,0,0,1);
     box-shadow: 2px -2px 44px -18px rgba(0,0,0,1);
+}
+.main_image
+{
+    position: relative;
+    left: 50%;
+    z-index: 1;
+    width: 0px;
+    bottom: -100px;
 }
 .add_input
 {
@@ -98,6 +110,66 @@ html,body
     -moz-box-shadow: -4px 17px 84px -8px rgba(0,0,0,0.75);
     box-shadow: -4px 17px 84px -8px rgba(0,0,0,0.75);
 }
+.gallery_drop
+{
+    padding: 30px;
+    position: fixed;
+    top: -10px;
+    left: 50%;
+    width: 900px;
+    z-index: 5000;
+    margin-top: -110%;
+    max-width: 900px;
+    margin-left: -480px;
+    max-height: 70%;
+    overflow: scroll;
+    background: #eee;
+    height: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+    -webkit-box-shadow: -4px 17px 84px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: -4px 17px 84px -8px rgba(0,0,0,0.75);
+    box-shadow: -4px 17px 84px -8px rgba(0,0,0,0.75);
+}
+.image_holder
+{
+    cursor: pointer;
+    width: 150px;
+    height: 150px;
+    margin: 20px;
+    display: inline;
+    position: relative;
+    border-radius: 5px;
+    transition: .2s ease;
+    -webkit-box-shadow: 2px -2px 68px -18px rgba(0,0,0,1);
+    -moz-box-shadow: 2px -2px 68px -18px rgba(0,0,0,1);
+    box-shadow: 2px -2px 68px -18px rgba(0,0,0,1);
+}
+.image_holder:hover
+{
+    -webkit-box-shadow: 2px -2px 113px -18px rgba(0,0,0,1);
+    -moz-box-shadow: 2px -2px 113px -18px rgba(0,0,0,1);
+    box-shadow: 2px -2px 113px -18px rgba(0,0,0,1);
+}
+.button
+{
+    font-size: 20px;
+    color: #009688;
+    border: thin;
+    background: transparent;
+    
+}
+.add_image
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 20px;
+    padding-top: 20px;
+    color: #bbb;
+    border-bottom: 2px solid;
+    cursor: pointer;
+}
 
 .input_big
 {
@@ -108,7 +180,7 @@ html,body
     font-size: 19px;
     outline: none;
     width: 90%;
-    color: #FFF;
+    color: #ccc;
     margin-top: 10px;
 }
 ::-webkit-input-placeholder {
