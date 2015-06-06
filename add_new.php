@@ -13,7 +13,6 @@
     
         <img class="main_image" src="" >
         <div class="box">
-            <input type="hidden" id="post_id">
             <div class="hint" id="title_hint">Title</div>
             <input type="text" name="title" to-hide="" id="title" class="add_input" placeholder="Title" autofocus maxlength="60">
             <div class="hint" id="intro_hint" style="border-bottom:none;">Introduction</div>
@@ -22,7 +21,12 @@
             <div class="add_image"><span class="icon-image"></span></div>
             
             <button class="button" id="add_day">Add more</button>
-    </div>
+        </div>
+        
+        <!--<div class="box">
+            <input type="text" name="title" to-hide="" id="title" class="event add_input" placeholder="Title" autofocus maxlength="30" style="font-size:15px">
+            <input type="text" name=""
+        </div> -->
         
     </div>
 </div>
@@ -43,6 +47,7 @@
 <script>
 $(document).ready(function(){
     var cur2;
+    var temp= '<?php echo uniqid();?>';
     $('.add_image').click(function(){
         $('.gallery_drop').animate({
             marginTop:'0px'},700);
@@ -84,10 +89,20 @@ $(document).ready(function(){
             var intro=$('#intro').val();
             var image=$('#hidden_image').val();
             $('#add_day').html("Saving..");
-            $('#add_day').load('a_insert_event.php',{'title': title, 'intro': intro, 'image':image});
+            $('#add_day').load('a_insert_event.php',{'title': title, 'intro': intro, 'image':image, 'id':temp});
+           
+                    add_new(temp);
         }
     });
 });
+ function add_new(temp)
+    {
+        var string='<div class="box">'
+                    +'<input type="text" name="title" to-hide="" id="title" class="add_input" placeholder="Title" autofocus maxlength="60">'
+        
+                    +'</div>';
+        $('.container-new').append(string);
+    }
 </script>
 
 <?php require_once('footer.php');?>

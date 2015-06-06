@@ -4,10 +4,14 @@
     $title=$_POST['title'];
     $intro=$_POST['intro'];
     $image=$_POST['image'];
-    $unique=uniqid();
-$query='INSERT INTO `main_post`(`id`, `title`, `intro`, `user`, `image`) VALUES ("'.$unique.'","'.$title.'","'.$intro.'","'.$user.'","'.$image.'")';
+    $id=$_POST['id'];
+$query='INSERT INTO `main_post`(`id`, `title`, `intro`, `user`, `image`) VALUES ("'.$id.'","'.$title.'","'.$intro.'","'.$user.'","'.$image.'")';
 if(mysqli_query($dbc,$query))
-    echo 'Saved';
+{   echo 'Saved';
+
+}
 else
+{
     echo 'Try Again';
+}
 ?>
