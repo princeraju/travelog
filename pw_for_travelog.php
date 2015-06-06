@@ -1,5 +1,6 @@
 
 <?php	
 require('../password_cluster.php');
-$dbs = mysqli_connect("localhost","root","","travelog");
+$dbc = mysqli_connect("localhost","root","","travelog");
+session_start();
 ?>
