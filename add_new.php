@@ -7,17 +7,20 @@
     require_once('header.php'); 
 ?>
 <div class="container">
-
+<?php require_once('navtab.php')?>
     <div class="container-new">
     
         <img class="main_image" src="" >
         <div class="box">
+            <input type="hidden" id="post_id">
             <div class="hint" id="title_hint">Title</div>
             <input type="text" name="title" to-hide="" id="title" class="add_input" placeholder="Title" autofocus maxlength="60">
             <div class="hint" id="intro_hint" style="border-bottom:none;">Introduction</div>
             <textarea type="text" name="intro" to-hide="intro_hint" id="intro" class="add_input" placeholder="Introduction"></textarea>
-            <input type="hidden" name="id">
+            <input type="hidden" id="hidden_image" value="">
             <div class="add_image"><span class="icon-image"></span></div>
+            
+            <button class="button">Add day</button>
         </div>
 <?php require_once('gallery_drop.php');?>
         
@@ -52,19 +55,23 @@ $(document).ready(function(){
         else
         {
             $('.main_image').animate({
-                width: '0px',
-                marginLeft:'0px'
-            },700);
-            
-            $('.main_image').delay(400).attr('src', 'user_pics/'+cur2)
-            
-            $('.gallery_drop').animate({
-            marginTop:'-1000px'
-            },700);
-            $('.main_image').animate({
-                width: '900px',
-                marginLeft:'-450px'
-            },700);
+                    width: '0px',
+                    marginLeft:'0px'
+                },700);
+                $('.main_image').delay(400).attr('src', 'user_pics/'+cur2);
+                $('#hidden_image').val(cur2);
+
+                $('.gallery_drop').animate({
+                marginTop:'-1000px'
+                },700);
+                $('.main_image').animate({
+                    width: '900px',
+                    marginLeft:'-450px'
+                },700);
+            if($('#hidden_image').val()!=cur2 && $('#hidden_image').val()!="")
+            {
+                
+            }
                                      
         }
     });
