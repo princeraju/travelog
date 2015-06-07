@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="themes/default.css">
         <link rel="stylesheet" href="themes/default.time.css">
         <link rel="stylesheet" href="themes/default.date.css">
+        <link rel="shortcut icon" href="images/logo_small.png" type="image/x-icon" />
     </head>
     
     <body>

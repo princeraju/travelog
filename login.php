@@ -37,8 +37,8 @@
                             echo '<span>'.$message.'</span>'
                     ?>
                     <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
-                    <input id="email" type="text" name="email" class="input_big" placeholder="email" autofocus required style="font-size:20px;" autocomplete="off">
-                    <input id="password" type="password" name="password" class="input_big" placeholder="password" required style="font-size:20px;" autocomplete="off">
+                    <input id="email" type="text" name="email" class="input_big" placeholder="email" autofocus required style="font-size:20px; color:#FFF" autocomplete="off">
+                    <input id="password" type="password" name="password" class="input_big" placeholder="password" required style="font-size:20px; color:#FFF" autocomplete="off">
                     <input type="submit" id="submit" name="submit" value="log in" class="login_but">
                     </form>
                     

@@ -330,3 +330,29 @@ html,body
     left: 10px;
     bottom: 10px;
 }
+#profile-line
+{
+    position: relative;
+    left: 50%;
+    margin-left: -450px;
+    margin-top: 250px;
+    width: 900px;
+    border-top: 2px solid;
+    color: #6e6e6e;
+}
+#profile-button
+{
+    background: #CCC;
+    width: 150px;
+    height: 150px;
+    border-radius: 150px;
+    position: relative;
+    left: 50%;
+    margin-left: -75px;
+    top: -75px;
+    background-size: cover;
+    -webkit-box-shadow: -4px 7px 88px -26px rgba(0,0,0,0.75);
+    -moz-box-shadow: -4px 7px 88px -26px rgba(0,0,0,0.75);
+    box-shadow: -4px 7px 88px -26px rgba(0,0,0,0.75);
+    
+}

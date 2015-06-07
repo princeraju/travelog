@@ -1,4 +1,4 @@
 <div class="nav_main">
     
-        <img src="images/logo.png" id="logo_nav">
+        <a href="index.php"><img src="images/logo.png" id="logo_nav"></a>
 </div>
