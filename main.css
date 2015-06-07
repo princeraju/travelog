@@ -159,11 +159,11 @@ html,body
     position: fixed;
     top: -10px;
     left: 50%;
-    width: 900px;
+    width: 850px;
     z-index: 5000;
     margin-top: -110%;
     max-width: 900px;
-    margin-left: -480px;
+    margin-left: -430px;
     max-height: 70%;
     overflow: scroll;
     background: #eee;

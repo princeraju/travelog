@@ -37,6 +37,8 @@
             <input type="text" name="title" to-hide="" id="title" class="event add_input title_small" placeholder="Title" autofocus maxlength="30" style="font-size:19px">
             <div class="hint" id="scribble_hint" style="border-bottom:none;">My scribblings</div>
             <textarea type="text" name="details" to-hide="scribble_hint" id="scribble" class="add_input" placeholder="My scribblings"></textarea>
+            <input type="hidden" id="secondary_pic" value="">
+            <div style="font-size:30px; cursor:pointer;" id="secondary_add"><span class="icon-image"></div><span id="sec_img" style="display:none;">Image Added<br/></span>
             <div class="button" id="awesome_button" style=" margin-left:10%; width:150px;"><span class="icon-radio-checked" style="color:#96002e;"></span> Auto Decode</div>
             <button class="button" id="save_button">Save</button>
         </div>
@@ -48,6 +50,15 @@
 
 $(document).ready(function(){
         var mysql_date;
+        var qwer=0;
+    $('#secondary_add').click(function(){
+        qwer=1;
+        
+        show_drop(".gallery_drop");
+    });
+    $('.add_image').click(function(){
+        qwer=0;
+    });
     
     $('#year_hold').keyup(function(){
         if($(this).val().length>=4)
@@ -118,6 +129,9 @@ $(document).ready(function(){
             var date=mysql_date;
             var title=$('.title_small').val();
             var des=$('#scribble').val();
+                if($('#secondary_pic').val().length>0)
+                    des=des+'<br/><img src="user_pics/'+$('#secondary_pic').val()+'" style="width:100%">';
+                
             $('#save_button').load('a_insert_log.php',{"id": log_id, "title":title, "des":des, "date":date, "id_journey":log_id});
             
             var string='<div class="box2">'+
@@ -149,7 +163,19 @@ $(document).ready(function(){
             alert('Hey! Image uploading will be added in the next beta launch');
         else
         {
-            $('.main_image').animate({
+            
+            if(qwer==1)
+            {
+                $('#secondary_pic').val(cur2);
+                $('#sec_img').show(500);
+                $('.gallery_drop').animate({
+                marginTop:'-1000px'
+                },700);
+                
+            }
+            else
+            {
+                $('.main_image').animate({
                     width: '0px',
                     marginLeft:'0px'
                 },700);
@@ -163,6 +189,7 @@ $(document).ready(function(){
                     width: '900px',
                     marginLeft:'-450px'
                 },700);
+            }
            
                                      
         }

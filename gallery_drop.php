@@ -14,6 +14,7 @@
                 }
             ?>
             </div>
+            <div style="position:absolute; top:10px; right:10px; font-size:50px; cursor:pointer;" id="up-gallery"><span class="icon-arrow-up2"></span></div>
         </div>
 
         <div class="drop_top" id="year" style="background:#009688; z-index:105;">
@@ -44,3 +45,12 @@
             <input type="text" id="link_hold" class="event" style="color:#FFF; font-size:20px; margin-top:70px; margin-left:50px; width:300px;" placeholder="Enter link to the video/audio file " >
     <button style="border:thin; background:transparent; border:thin; color:#CCC; font-size:20px; margin-top:30px; margin-left:150px; cursor:pointer;" id="extract"><u>Extract</u></button>
 </div>
+<script>
+$(document).ready(function(){
+    $('#up-gallery').click(function(){
+         $('.gallery_drop').animate({
+            marginTop: '-1000px'
+        },500);
+    });
+});
+</script>
