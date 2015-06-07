@@ -37,12 +37,11 @@ function getSSLPage($url) {
         $header['content'] = $content;
         return $header;
 }
-
-function dojob($job_key)
-{
-$file="https://api.idolondemand.com/1/job/status/".$job_key."?apikey=".$hp_key;
+      require_once('pw_for_travelog.php');
+$file="https://api.idolondemand.com/1/job/status/".$param."?apikey=".$hp_key;
 
       $file=getSSLPage($file);
+
 $new=$file["content"];
 $new=explode('"',$new);
 
@@ -52,7 +51,5 @@ for($i=0;$i<20;$i++)
         break;
 }
 $new=$new[$i+2];
-return $new;
-
-}
+echo $new;
 ?>

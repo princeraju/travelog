@@ -7,9 +7,10 @@
 <?php
     require_once('header.php'); 
 ?>
+
+<?php require_once('gallery_drop.php');?>
 <div class="container">
 <?php require_once('navtab.php')?>
-<?php require_once('gallery_drop.php');?>
     <div class="container-new">
     
         <img class="main_image" src="" >
@@ -36,16 +37,17 @@
             <input type="text" name="title" to-hide="" id="title" class="event add_input title_small" placeholder="Title" autofocus maxlength="30" style="font-size:19px">
             <div class="hint" id="scribble_hint" style="border-bottom:none;">My scribblings</div>
             <textarea type="text" name="details" to-hide="scribble_hint" id="scribble" class="add_input" placeholder="My scribblings"></textarea>
+            <div class="button" id="awesome_button" style=" margin-left:10%; width:150px;"><span class="icon-radio-checked" style="color:#96002e;"></span> Auto Decode</div>
             <button class="button" id="save_button">Save</button>
         </div>
         
     </div>
+                    <div id="extracted" style="opacity:0;"></div>
 </div>
 <script>
 
 $(document).ready(function(){
         var mysql_date;
-   $(".drop_top").css("marginTop", '-1000px');
     
     $('#year_hold').keyup(function(){
         if($(this).val().length>=4)
@@ -56,6 +58,25 @@ $(document).ready(function(){
         }
     });
     
+    $('#awesome_button').click(function(){
+        $('#decoder_drop').animate({
+                marginTop:'0px'
+                },700);
+    });
+    $('#extract').click(function(){
+        var tem=$('#link_hold').val();
+        if(tem.length>0)
+        {
+            $("#extracted").load("testhp.php", {"type":"0", "param":tem});
+        }
+    });
+    $('#extracted').bind("DOMSubtreeModified",function(){
+        var temp4=$("#extracted").html();
+        $('#scribble').val(temp4);
+        $('.drop_top').animate({
+                marginTop:'-1000px'
+                },700);
+    });
     
     $(".button2").click(function(){
         month=$(this).attr('value');
@@ -164,9 +185,18 @@ $(document).ready(function(){
         }
     });
     
+$('#container').click(function(){
+    $('.drop_top').animate({
+            marginTop: '-1000px'
+        },500);
+    $('.gallery_drop').animate({
+            marginTop: '-1000px'
+        },500);
+});
 
 });
 
+ 
     
     function show_drop(temp) 
     {
@@ -182,6 +212,7 @@ $(document).ready(function(){
             marginTop: '-1000px'
         },500);
     }
+    
 
 </script>
 

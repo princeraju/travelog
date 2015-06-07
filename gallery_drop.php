@@ -38,6 +38,7 @@
         </div> 
 
 
-<script>
-
-</script>
+<div class="drop_top"  style="background:#009688; z-index:105;" id="decoder_drop">
+            <input type="text" id="link_hold" class="event" style="color:#FFF; font-size:20px; margin-top:70px; margin-left:50px; width:300px;" placeholder="Enter link to the video/audio file " >
+    <button style="border:thin; background:transparent; border:thin; color:#CCC; font-size:20px; margin-top:30px; margin-left:150px; cursor:pointer;" id="extract"><u>Extract</u></button>
+</div>

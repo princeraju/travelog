@@ -37,19 +37,15 @@ function getSSLPage($url) {
         return $header;
 }
 
-function getjob($file)
-{
-           
-$url=$file;
+      
+$url=$param;
 
          $file="https://api.idolondemand.com/1/api/async/recognizespeech/v1?url=".$url."&apikey=".$hp_key;
           $file=getSSLPage($file);
-print_r($file);
 $new=explode('"',$file["content"]);
 $new=$new[3];
     return $new;
     
-}
 
 ?>
 
