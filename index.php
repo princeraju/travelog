@@ -36,7 +36,7 @@
                 $data=mysqli_query($dbc,$query);
                     while($row=mysqli_fetch_array($data))
                     {
-                        echo '<h4 style="color:#009688;">'.$row['title'].'</h4>';
+                        echo '<a href="view.php?id='.$row['id'].'"><h4 style="color:#009688;">'.$row['title'].'</h4>';
                     }
                 ?>
 

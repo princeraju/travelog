@@ -53,7 +53,6 @@ $(document).ready(function(){
         var qwer=0;
     $('#secondary_add').click(function(){
         qwer=1;
-        
         show_drop(".gallery_drop");
     });
     $('.add_image').click(function(){
@@ -130,7 +129,7 @@ $(document).ready(function(){
             var title=$('.title_small').val();
             var des=$('#scribble').val();
                 if($('#secondary_pic').val().length>0)
-                    des=des+'<br/><img src="user_pics/'+$('#secondary_pic').val()+'" style="width:100%">';
+                    des=des+'<br/><img src="user_pics/'+$('#secondary_pic').val()+'" style="width:100%; border-radius:5px;">';
                 
             $('#save_button').load('a_insert_log.php',{"id": log_id, "title":title, "des":des, "date":date, "id_journey":log_id});
             
@@ -144,6 +143,7 @@ $(document).ready(function(){
             $('.title_small').val('');
             $('#scribble').val('');
             $('#full_date').html('');
+            $('#sec_img').hide(500);
             $('#add_date_button').html('<u>Add Date</u>');
             $('#scribble_hint').hide(500);
         });
