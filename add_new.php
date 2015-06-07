@@ -1,5 +1,6 @@
 <?php 
     $title="Add New Travel";
+
     require_once('pw_for_travelog.php');
 ?>
 
