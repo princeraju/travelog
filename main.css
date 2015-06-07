@@ -167,7 +167,7 @@ html,body
     max-height: 70%;
     overflow: scroll;
     background: #eee;
-    height: 250px;
+    height: 350px;
     border-radius: 10px;
     overflow: hidden;
     -webkit-box-shadow: -4px 17px 84px -8px rgba(0,0,0,0.75);
@@ -355,4 +355,14 @@ html,body
     -moz-box-shadow: -4px 7px 88px -26px rgba(0,0,0,0.75);
     box-shadow: -4px 7px 88px -26px rgba(0,0,0,0.75);
     
+}
+#profile-details
+{
+    position: relative;
+    width: 600px;
+    height: 100px;
+    text-align: center;
+    top: -70px;
+    left: 50%;
+    margin-left: -300px;
 }

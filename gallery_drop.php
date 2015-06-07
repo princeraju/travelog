@@ -1,5 +1,6 @@
         
         <div class="gallery_drop">
+            <div style="position:absolute; width:100%; height:100%; overflow:scroll; padding-bottom:50px;">
             <img class="image_holder" src="images/add_new_photo.png" loc="null">
             <?php
                 $query="SELECT * FROM pics";
@@ -12,6 +13,7 @@
                     
                 }
             ?>
+            </div>
         </div>
 
         <div class="drop_top" id="year" style="background:#009688; z-index:105;">
